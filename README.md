@@ -6,6 +6,9 @@ I will unfortunately have to deal with the stupid 920M proprietary driver issue 
 https://bbs.archlinux.org/viewtopic.php?id=271625
 
 I will need the legacy driver: https://www.nvidia.com/en-us/drivers/unix/
+
+Grab it from AUR: https://aur.archlinux.org/packages/nvidia-470xx-dkms
+
 But run rns utils and dkms first
 
 btop will fucking crash itself because of this, which is why I installed the git version of it (btop-git)
