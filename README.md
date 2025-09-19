@@ -14,3 +14,13 @@ Do the rest from the forum and check with: sudo cat /sys/module/nvidia_drm/param
 It should return Y
 
 After this everything else can come such as swww, pywal, kitty and whatnot
+
+Disable swaybg from starting:
+
+~/.local/omarchy/default/hypr/autostart.conf (and append swww-daemon and fcitx5 while at it, too)
+
+Reference for fcitx5: https://qiita.com/mnishiguchi/items/2a1a485a72ff6289b32f
+
+Uncomment omarchy-theme-bg-next keybinding from:
+
+~/.local/share/omarchy/default/hypr/bindings/utilities.conf
