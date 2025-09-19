@@ -13,7 +13,10 @@ But run rns utils and dkms first
 
 btop will fucking crash itself because of this, which is why I installed the git version of it (btop-git)
 
-Do the rest from the forum and check with: sudo cat /sys/module/nvidia_drm/parameters/modeset
+Do the rest from the forum and check with:
+
+sudo cat /sys/module/nvidia_drm/parameters/modeset
+
 It should return Y
 
 After this everything else can come such as swww, pywal, kitty and whatnot
