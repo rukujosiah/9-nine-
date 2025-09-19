@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Define paths
+BACKGROUND_SYMLINK="/home/archruku/.config/omarchy/current/background"
+LOCKSCREEN_SYMLINK="/home/archruku/.config/omarchy/current/lockscreen"
+BACKGROUND_DIR="/home/archruku/.config/omarchy/current/theme/backgrounds"
+LOCKSCREEN_DIR="/home/archruku/.config/omarchy/current/theme/lockscreen"
+
+# Get the current background filename from the symlink
+CURRENT_BG=$(basename "$(readlink -f "$BACKGROUND_SYMLINK")")
+
+# Extract the base name without extension (e.g., 'sora' from 'sora_wal.png')
+BASE_NAME=$(echo "$CURRENT_BG" | sed 's/_wal\.png//')
+
+# Define the expected lockscreen filename
+LOCKSCREEN_FILE="${BASE_NAME}_lock.png"
+LOCKSCREEN_PATH="$LOCKSCREEN_DIR/$LOCKSCREEN_FILE"
+
+# Run pywal with the current background
+# wal -i "$BACKGROUND_DIR/$CURRENT_BG"
+
+# Check if the corresponding lockscreen image exists
+if [[ -f "$LOCKSCREEN_PATH" ]]; then
+    # If lockscreen image exists, update the lockscreen symlink
+    ln -sf "$LOCKSCREEN_PATH" "$LOCKSCREEN_SYMLINK"
+else
+    # If no corresponding lockscreen image, use the background image
+    ln -sf "$BACKGROUND_DIR/$CURRENT_BG" "$LOCKSCREEN_SYMLINK"
+fi
